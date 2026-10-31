@@ -1,0 +1,3 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:kantin_kampus_tema/main.dart';
+void main() { testWidgets('Alur utama dan perubahan state', (tester) async { await tester.pumpWidget(const KantinApp()); await tester.pumpAndSettle(); await tester.tap(find.byTooltip('Tambah Nasi Goreng')); await tester.tap(find.text('Keranjang')); await tester.pumpAndSettle(); expect(find.textContaining('15000'), findsNothing); expect(find.textContaining('15.000'), findsWidgets); await tester.tap(find.text('Kosongkan')); await tester.pumpAndSettle(); expect(find.text('Keranjang kosong'), findsOneWidget); expect(tester.takeException(),isNull); }); }
